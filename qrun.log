@@ -1,0 +1,845 @@
+QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
+Start time: 18:16:47 on Jul 08,2026
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -coverage -voptargs="+cover" -mfcu design.sv testbench.sv -coverage -voptargs="+cover" -do " run -all; exit" 
+** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+** Note: (vmap-220) 'modelsim.ini' is used as the ini file.
+QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+Start time: 18:16:47 on Jul 08,2026
+vlog -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
+** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module SRAM
+-- Compiling module sram_tb
+
+Top level modules:
+	sram_tb
+** Note: (vlog-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+End time: 18:16:50 on Jul 08,2026, Elapsed time: 0:00:03
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+Start time: 18:16:50 on Jul 08,2026
+vopt -access=rw+/. -mfcu "+cover" "+cover" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
+
+Top level modules:
+	sram_tb
+
+Analyzing design...
+-- Loading module sram_tb
+-- Loading module SRAM
+Optimizing 2 design-units (inlining 1/2 module instances):
+-- Inlining module SRAM(fast)
+-- Optimizing module sram_tb(fast)
+Optimized design name is qrun_opt
+End time: 18:16:50 on Jul 08,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+# ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
+# vsim -batch -lib qrun.out/work -coverage -do "coverage save -onexit cov_$Sv_Seed.ucdb" -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 18:16:50 on Jul 08,2026
+# Loading /tmp/root@943501a1d827_dpi_33/linux_x86_64_gcc-11/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2025.2 linux_x86_64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.sram_tb(fast)
+# ** Note: (vsim-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+# Loading /tmp/root@943501a1d827_dpi_33/linux_x86_64_gcc-11/vsim_auto_compile.so
+# 
+# coverage save -onexit cov_$Sv_Seed.ucdb
+# run -all
+# WRITE: addr=7f data=bb
+# WRITE: addr=80 data=cc
+# WRITE: addr=ff data=dd
+# READ: addr=00 | got=xx | expected=xx
+# PASS: addr=00 | data=xx
+# READ: addr=7f | got=bb | expected=bb
+# PASS: addr=7f | data=bb
+# READ: addr=80 | got=cc | expected=cc
+# PASS: addr=80 | data=cc
+# WRITE: addr=7a data=7e
+# READ: addr=ff | got=dd | expected=dd
+# PASS: addr=ff | data=dd
+# READ: addr=4e | got=xx | expected=xx
+# PASS: addr=4e | data=xx
+# WRITE: addr=4c data=57
+# READ: addr=9b | got=xx | expected=xx
+# PASS: addr=9b | data=xx
+# WRITE: addr=cf data=f3
+# READ: addr=10 | got=xx | expected=xx
+# PASS: addr=10 | data=xx
+# READ: addr=d8 | got=xx | expected=xx
+# PASS: addr=d8 | data=xx
+# WRITE: addr=e3 data=f3
+# READ: addr=88 | got=xx | expected=xx
+# PASS: addr=88 | data=xx
+# WRITE: addr=bb data=fc
+# READ: addr=e2 | got=xx | expected=xx
+# PASS: addr=e2 | data=xx
+# READ: addr=cf | got=f3 | expected=f3
+# PASS: addr=cf | data=f3
+# WRITE: addr=1a data=88
+# READ: addr=c7 | got=xx | expected=xx
+# PASS: addr=c7 | data=xx
+# WRITE: addr=84 data=0c
+# READ: addr=b9 | got=xx | expected=xx
+# PASS: addr=b9 | data=xx
+# READ: addr=f9 | got=xx | expected=xx
+# PASS: addr=f9 | data=xx
+# WRITE: addr=db data=6e
+# READ: addr=90 | got=xx | expected=xx
+# PASS: addr=90 | data=xx
+# WRITE: addr=a3 data=4e
+# WRITE: addr=9a data=89
+# WRITE: addr=7b data=58
+# WRITE: addr=ac data=a5
+# READ: addr=a8 | got=xx | expected=xx
+# PASS: addr=a8 | data=xx
+# WRITE: addr=9d data=f6
+# WRITE: addr=a7 data=73
+# READ: addr=08 | got=xx | expected=xx
+# PASS: addr=08 | data=xx
+# READ: addr=d9 | got=xx | expected=xx
+# PASS: addr=d9 | data=xx
+# READ: addr=91 | got=xx | expected=xx
+# PASS: addr=91 | data=xx
+# READ: addr=93 | got=xx | expected=xx
+# PASS: addr=93 | data=xx
+# READ: addr=cf | got=f3 | expected=f3
+# PASS: addr=cf | data=f3
+# WRITE: addr=61 data=41
+# READ: addr=bf | got=xx | expected=xx
+# PASS: addr=bf | data=xx
+# WRITE: addr=2c data=20
+# WRITE: addr=01 data=4e
+# READ: addr=86 | got=xx | expected=xx
+# PASS: addr=86 | data=xx
+# READ: addr=0b | got=xx | expected=xx
+# PASS: addr=0b | data=xx
+# WRITE: addr=27 data=8e
+# READ: addr=94 | got=xx | expected=xx
+# PASS: addr=94 | data=xx
+# WRITE: addr=4c data=a1
+# WRITE: addr=23 data=bd
+# WRITE: addr=23 data=f9
+# WRITE: addr=30 data=cd
+# READ: addr=31 | got=xx | expected=xx
+# PASS: addr=31 | data=xx
+# READ: addr=db | got=6e | expected=6e
+# PASS: addr=db | data=6e
+# WRITE: addr=14 data=c6
+# READ: addr=e2 | got=xx | expected=xx
+# PASS: addr=e2 | data=xx
+# WRITE: addr=ef data=43
+# READ: addr=2a | got=xx | expected=xx
+# PASS: addr=2a | data=xx
+# WRITE: addr=2c data=9d
+# READ: addr=21 | got=xx | expected=xx
+# PASS: addr=21 | data=xx
+# READ: addr=43 | got=xx | expected=xx
+# PASS: addr=43 | data=xx
+# READ: addr=88 | got=xx | expected=xx
+# PASS: addr=88 | data=xx
+# READ: addr=b7 | got=xx | expected=xx
+# PASS: addr=b7 | data=xx
+# WRITE: addr=3d data=08
+# READ: addr=fd | got=xx | expected=xx
+# PASS: addr=fd | data=xx
+# WRITE: addr=31 data=47
+# WRITE: addr=d1 data=a8
+# READ: addr=03 | got=xx | expected=xx
+# PASS: addr=03 | data=xx
+# WRITE: addr=56 data=8e
+# WRITE: addr=eb data=6b
+# READ: addr=e1 | got=xx | expected=xx
+# PASS: addr=e1 | data=xx
+# WRITE: addr=9d data=78
+# READ: addr=c6 | got=xx | expected=xx
+# PASS: addr=c6 | data=xx
+# WRITE: addr=d5 data=94
+# READ: addr=f8 | got=xx | expected=xx
+# PASS: addr=f8 | data=xx
+# WRITE: addr=47 data=0f
+# WRITE: addr=54 data=7c
+# READ: addr=03 | got=xx | expected=xx
+# PASS: addr=03 | data=xx
+# WRITE: addr=43 data=70
+# WRITE: addr=86 data=32
+# WRITE: addr=23 data=fe
+# WRITE: addr=d7 data=ce
+# WRITE: addr=a5 data=87
+# WRITE: addr=a4 data=f4
+# WRITE: addr=65 data=28
+# READ: addr=d9 | got=xx | expected=xx
+# PASS: addr=d9 | data=xx
+# WRITE: addr=8b data=96
+# READ: addr=84 | got=0c | expected=0c
+# PASS: addr=84 | data=0c
+# READ: addr=bb | got=fc | expected=fc
+# PASS: addr=bb | data=fc
+# READ: addr=31 | got=47 | expected=47
+# PASS: addr=31 | data=47
+# READ: addr=ab | got=xx | expected=xx
+# PASS: addr=ab | data=xx
+# READ: addr=fb | got=xx | expected=xx
+# PASS: addr=fb | data=xx
+# WRITE: addr=c2 data=89
+# READ: addr=f1 | got=xx | expected=xx
+# PASS: addr=f1 | data=xx
+# WRITE: addr=9e data=dd
+# READ: addr=30 | got=cd | expected=cd
+# PASS: addr=30 | data=cd
+# READ: addr=cb | got=xx | expected=xx
+# PASS: addr=cb | data=xx
+# WRITE: addr=c5 data=ed
+# READ: addr=92 | got=xx | expected=xx
+# PASS: addr=92 | data=xx
+# READ: addr=ff | got=dd | expected=dd
+# PASS: addr=ff | data=dd
+# READ: addr=2c | got=9d | expected=9d
+# PASS: addr=2c | data=9d
+# WRITE: addr=20 data=03
+# READ: addr=e4 | got=xx | expected=xx
+# PASS: addr=e4 | data=xx
+# WRITE: addr=25 data=18
+# WRITE: addr=46 data=34
+# WRITE: addr=e1 data=d0
+# READ: addr=c5 | got=ed | expected=ed
+# PASS: addr=c5 | data=ed
+# WRITE: addr=a6 data=b9
+# READ: addr=b2 | got=xx | expected=xx
+# PASS: addr=b2 | data=xx
+# WRITE: addr=3f data=5a
+# READ: addr=60 | got=xx | expected=xx
+# PASS: addr=60 | data=xx
+# WRITE: addr=01 data=1c
+# READ: addr=3b | got=xx | expected=xx
+# PASS: addr=3b | data=xx
+# WRITE: addr=8c data=49
+# WRITE: addr=fd data=ef
+# WRITE: addr=4d data=3c
+# WRITE: addr=87 data=2d
+# WRITE: addr=8e data=d0
+# WRITE: addr=23 data=62
+# WRITE: addr=c0 data=26
+# READ: addr=5e | got=xx | expected=xx
+# PASS: addr=5e | data=xx
+# READ: addr=af | got=xx | expected=xx
+# PASS: addr=af | data=xx
+# READ: addr=ac | got=a5 | expected=a5
+# PASS: addr=ac | data=a5
+# READ: addr=5d | got=xx | expected=xx
+# PASS: addr=5d | data=xx
+# READ: addr=3a | got=xx | expected=xx
+# PASS: addr=3a | data=xx
+# READ: addr=f8 | got=xx | expected=xx
+# PASS: addr=f8 | data=xx
+# WRITE: addr=70 data=0d
+# READ: addr=9a | got=89 | expected=89
+# PASS: addr=9a | data=89
+# READ: addr=50 | got=xx | expected=xx
+# PASS: addr=50 | data=xx
+# READ: addr=2e | got=xx | expected=xx
+# PASS: addr=2e | data=xx
+# WRITE: addr=bc data=81
+# READ: addr=e6 | got=xx | expected=xx
+# PASS: addr=e6 | data=xx
+# WRITE: addr=77 data=22
+# WRITE: addr=9d data=29
+# READ: addr=8b | got=96 | expected=96
+# PASS: addr=8b | data=96
+# WRITE: addr=06 data=18
+# WRITE: addr=cb data=36
+# READ: addr=bd | got=xx | expected=xx
+# PASS: addr=bd | data=xx
+# WRITE: addr=db data=1c
+# READ: addr=b8 | got=xx | expected=xx
+# PASS: addr=b8 | data=xx
+# READ: addr=a2 | got=xx | expected=xx
+# PASS: addr=a2 | data=xx
+# READ: addr=2b | got=xx | expected=xx
+# PASS: addr=2b | data=xx
+# READ: addr=36 | got=xx | expected=xx
+# PASS: addr=36 | data=xx
+# WRITE: addr=e9 data=cd
+# READ: addr=5c | got=xx | expected=xx
+# PASS: addr=5c | data=xx
+# WRITE: addr=22 data=2b
+# WRITE: addr=98 data=af
+# WRITE: addr=6b data=8d
+# WRITE: addr=18 data=ee
+# WRITE: addr=3c data=a6
+# WRITE: addr=c1 data=96
+# WRITE: addr=bd data=a9
+# WRITE: addr=76 data=62
+# READ: addr=4b | got=xx | expected=xx
+# PASS: addr=4b | data=xx
+# WRITE: addr=50 data=b9
+# WRITE: addr=ab data=18
+# WRITE: addr=26 data=d5
+# WRITE: addr=fd data=c8
+# WRITE: addr=3d data=0f
+# WRITE: addr=4c data=09
+# READ: addr=d3 | got=xx | expected=xx
+# PASS: addr=d3 | data=xx
+# READ: addr=a8 | got=xx | expected=xx
+# PASS: addr=a8 | data=xx
+# READ: addr=36 | got=xx | expected=xx
+# PASS: addr=36 | data=xx
+# READ: addr=0d | got=xx | expected=xx
+# PASS: addr=0d | data=xx
+# READ: addr=61 | got=41 | expected=41
+# PASS: addr=61 | data=41
+# READ: addr=a4 | got=f4 | expected=f4
+# PASS: addr=a4 | data=f4
+# READ: addr=3a | got=xx | expected=xx
+# PASS: addr=3a | data=xx
+# READ: addr=19 | got=xx | expected=xx
+# PASS: addr=19 | data=xx
+# WRITE: addr=3c data=cf
+# READ: addr=25 | got=18 | expected=18
+# PASS: addr=25 | data=18
+# READ: addr=0e | got=xx | expected=xx
+# PASS: addr=0e | data=xx
+# READ: addr=8a | got=xx | expected=xx
+# PASS: addr=8a | data=xx
+# WRITE: addr=0a data=da
+# READ: addr=1f | got=xx | expected=xx
+# PASS: addr=1f | data=xx
+# WRITE: addr=ec data=60
+# WRITE: addr=ee data=22
+# READ: addr=6a | got=xx | expected=xx
+# PASS: addr=6a | data=xx
+# WRITE: addr=25 data=65
+# READ: addr=62 | got=xx | expected=xx
+# PASS: addr=62 | data=xx
+# READ: addr=36 | got=xx | expected=xx
+# PASS: addr=36 | data=xx
+# READ: addr=5e | got=xx | expected=xx
+# PASS: addr=5e | data=xx
+# WRITE: addr=78 data=81
+# READ: addr=df | got=xx | expected=xx
+# PASS: addr=df | data=xx
+# WRITE: addr=54 data=c5
+# WRITE: addr=a4 data=93
+# WRITE: addr=fd data=76
+# READ: addr=de | got=xx | expected=xx
+# PASS: addr=de | data=xx
+# WRITE: addr=90 data=8b
+# WRITE: addr=a3 data=55
+# READ: addr=bb | got=fc | expected=fc
+# PASS: addr=bb | data=fc
+# READ: addr=f5 | got=xx | expected=xx
+# PASS: addr=f5 | data=xx
+# READ: addr=44 | got=xx | expected=xx
+# PASS: addr=44 | data=xx
+# READ: addr=34 | got=xx | expected=xx
+# PASS: addr=34 | data=xx
+# READ: addr=4f | got=xx | expected=xx
+# PASS: addr=4f | data=xx
+# READ: addr=30 | got=cd | expected=cd
+# PASS: addr=30 | data=cd
+# WRITE: addr=0e data=4d
+# READ: addr=ee | got=22 | expected=22
+# PASS: addr=ee | data=22
+# READ: addr=f0 | got=xx | expected=xx
+# PASS: addr=f0 | data=xx
+# READ: addr=de | got=xx | expected=xx
+# PASS: addr=de | data=xx
+# READ: addr=03 | got=xx | expected=xx
+# PASS: addr=03 | data=xx
+# READ: addr=b2 | got=xx | expected=xx
+# PASS: addr=b2 | data=xx
+# READ: addr=e9 | got=cd | expected=cd
+# PASS: addr=e9 | data=cd
+# WRITE: addr=ec data=fc
+# READ: addr=1b | got=xx | expected=xx
+# PASS: addr=1b | data=xx
+# WRITE: addr=ee data=6e
+# READ: addr=0c | got=xx | expected=xx
+# PASS: addr=0c | data=xx
+# WRITE: addr=88 data=77
+# READ: addr=85 | got=xx | expected=xx
+# PASS: addr=85 | data=xx
+# WRITE: addr=e6 data=9e
+# READ: addr=65 | got=28 | expected=28
+# PASS: addr=65 | data=28
+# WRITE: addr=1e data=ca
+# READ: addr=45 | got=xx | expected=xx
+# PASS: addr=45 | data=xx
+# WRITE: addr=01 data=d3
+# WRITE: addr=26 data=c5
+# READ: addr=69 | got=xx | expected=xx
+# PASS: addr=69 | data=xx
+# WRITE: addr=7a data=dd
+# WRITE: addr=b7 data=0e
+# WRITE: addr=6c data=19
+# WRITE: addr=60 data=93
+# READ: addr=a8 | got=xx | expected=xx
+# PASS: addr=a8 | data=xx
+# READ: addr=bc | got=81 | expected=81
+# PASS: addr=bc | data=81
+# WRITE: addr=f3 data=23
+# READ: addr=96 | got=xx | expected=xx
+# PASS: addr=96 | data=xx
+# WRITE: addr=b8 data=35
+# READ: addr=26 | got=c5 | expected=c5
+# PASS: addr=26 | data=c5
+# WRITE: addr=5b data=6d
+# READ: addr=c7 | got=xx | expected=xx
+# PASS: addr=c7 | data=xx
+# WRITE: addr=84 data=df
+# READ: addr=12 | got=xx | expected=xx
+# PASS: addr=12 | data=xx
+# READ: addr=66 | got=xx | expected=xx
+# PASS: addr=66 | data=xx
+# WRITE: addr=0f data=88
+# READ: addr=38 | got=xx | expected=xx
+# PASS: addr=38 | data=xx
+# WRITE: addr=fd data=a3
+# READ: addr=35 | got=xx | expected=xx
+# PASS: addr=35 | data=xx
+# WRITE: addr=5e data=0a
+# WRITE: addr=ad data=ad
+# READ: addr=89 | got=xx | expected=xx
+# PASS: addr=89 | data=xx
+# WRITE: addr=0f data=72
+# WRITE: addr=9b data=a2
+# WRITE: addr=74 data=23
+# WRITE: addr=b3 data=3a
+# READ: addr=7b | got=58 | expected=58
+# PASS: addr=7b | data=58
+# READ: addr=92 | got=xx | expected=xx
+# PASS: addr=92 | data=xx
+# READ: addr=ac | got=a5 | expected=a5
+# PASS: addr=ac | data=a5
+# READ: addr=0c | got=xx | expected=xx
+# PASS: addr=0c | data=xx
+# WRITE: addr=53 data=76
+# READ: addr=ed | got=xx | expected=xx
+# PASS: addr=ed | data=xx
+# WRITE: addr=fd data=8a
+# WRITE: addr=a5 data=70
+# WRITE: addr=a6 data=d2
+# WRITE: addr=4b data=32
+# READ: addr=fb | got=xx | expected=xx
+# PASS: addr=fb | data=xx
+# WRITE: addr=1d data=44
+# WRITE: addr=3f data=53
+# WRITE: addr=6f data=fe
+# READ: addr=00 | got=xx | expected=xx
+# PASS: addr=00 | data=xx
+# WRITE: addr=68 data=8f
+# READ: addr=ff | got=dd | expected=dd
+# PASS: addr=ff | data=dd
+# WRITE: addr=51 data=c8
+# READ: addr=91 | got=xx | expected=xx
+# PASS: addr=91 | data=xx
+# WRITE: addr=8e data=c4
+# READ: addr=f2 | got=xx | expected=xx
+# PASS: addr=f2 | data=xx
+# WRITE: addr=51 data=ed
+# READ: addr=93 | got=xx | expected=xx
+# PASS: addr=93 | data=xx
+# WRITE: addr=4e data=fc
+# READ: addr=eb | got=6b | expected=6b
+# PASS: addr=eb | data=6b
+# WRITE: addr=ac data=42
+# WRITE: addr=9a data=98
+# WRITE: addr=7d data=5b
+# WRITE: addr=58 data=80
+# READ: addr=e9 | got=cd | expected=cd
+# PASS: addr=e9 | data=cd
+# READ: addr=b6 | got=xx | expected=xx
+# PASS: addr=b6 | data=xx
+# READ: addr=2a | got=xx | expected=xx
+# PASS: addr=2a | data=xx
+# READ: addr=f5 | got=xx | expected=xx
+# PASS: addr=f5 | data=xx
+# WRITE: addr=ae data=9d
+# READ: addr=ef | got=43 | expected=43
+# PASS: addr=ef | data=43
+# WRITE: addr=1d data=13
+# READ: addr=f7 | got=xx | expected=xx
+# PASS: addr=f7 | data=xx
+# WRITE: addr=51 data=d9
+# READ: addr=52 | got=xx | expected=xx
+# PASS: addr=52 | data=xx
+# WRITE: addr=08 data=32
+# WRITE: addr=9f data=9b
+# WRITE: addr=2f data=1c
+# READ: addr=9a | got=98 | expected=98
+# PASS: addr=9a | data=98
+# READ: addr=8c | got=49 | expected=49
+# PASS: addr=8c | data=49
+# READ: addr=30 | got=cd | expected=cd
+# PASS: addr=30 | data=cd
+# READ: addr=46 | got=34 | expected=34
+# PASS: addr=46 | data=34
+# WRITE: addr=87 data=8e
+# READ: addr=9e | got=dd | expected=dd
+# PASS: addr=9e | data=dd
+# READ: addr=90 | got=8b | expected=8b
+# PASS: addr=90 | data=8b
+# READ: addr=4a | got=xx | expected=xx
+# PASS: addr=4a | data=xx
+# WRITE: addr=18 data=fd
+# READ: addr=1e | got=ca | expected=ca
+# PASS: addr=1e | data=ca
+# WRITE: addr=a3 data=30
+# READ: addr=40 | got=xx | expected=xx
+# PASS: addr=40 | data=xx
+# WRITE: addr=f8 data=d1
+# READ: addr=62 | got=xx | expected=xx
+# PASS: addr=62 | data=xx
+# WRITE: addr=d5 data=0f
+# READ: addr=cc | got=xx | expected=xx
+# PASS: addr=cc | data=xx
+# WRITE: addr=89 data=ed
+# WRITE: addr=c9 data=fb
+# READ: addr=d1 | got=a8 | expected=a8
+# PASS: addr=d1 | data=a8
+# WRITE: addr=30 data=00
+# WRITE: addr=8f data=63
+# WRITE: addr=f8 data=08
+# WRITE: addr=d8 data=22
+# WRITE: addr=1b data=2b
+# READ: addr=4d | got=3c | expected=3c
+# PASS: addr=4d | data=3c
+# WRITE: addr=1b data=22
+# WRITE: addr=52 data=e8
+# WRITE: addr=0e data=40
+# WRITE: addr=27 data=54
+# WRITE: addr=c8 data=59
+# READ: addr=f1 | got=xx | expected=xx
+# PASS: addr=f1 | data=xx
+# WRITE: addr=6b data=1b
+# WRITE: addr=d5 data=81
+# WRITE: addr=cc data=42
+# READ: addr=63 | got=xx | expected=xx
+# PASS: addr=63 | data=xx
+# READ: addr=31 | got=47 | expected=47
+# PASS: addr=31 | data=47
+# READ: addr=f3 | got=23 | expected=23
+# PASS: addr=f3 | data=23
+# WRITE: addr=24 data=c6
+# READ: addr=88 | got=77 | expected=77
+# PASS: addr=88 | data=77
+# WRITE: addr=f3 data=4c
+# READ: addr=a6 | got=d2 | expected=d2
+# PASS: addr=a6 | data=d2
+# READ: addr=6e | got=xx | expected=xx
+# PASS: addr=6e | data=xx
+# READ: addr=29 | got=xx | expected=xx
+# PASS: addr=29 | data=xx
+# READ: addr=4d | got=3c | expected=3c
+# PASS: addr=4d | data=3c
+# WRITE: addr=4c data=53
+# READ: addr=f3 | got=4c | expected=4c
+# PASS: addr=f3 | data=4c
+# WRITE: addr=c0 data=30
+# WRITE: addr=eb data=28
+# WRITE: addr=d8 data=62
+# WRITE: addr=57 data=b5
+# READ: addr=97 | got=xx | expected=xx
+# PASS: addr=97 | data=xx
+# READ: addr=b6 | got=xx | expected=xx
+# PASS: addr=b6 | data=xx
+# WRITE: addr=af data=5d
+# READ: addr=d4 | got=xx | expected=xx
+# PASS: addr=d4 | data=xx
+# WRITE: addr=fe data=5e
+# READ: addr=c8 | got=59 | expected=59
+# PASS: addr=c8 | data=59
+# READ: addr=73 | got=xx | expected=xx
+# PASS: addr=73 | data=xx
+# READ: addr=be | got=xx | expected=xx
+# PASS: addr=be | data=xx
+# READ: addr=43 | got=70 | expected=70
+# PASS: addr=43 | data=70
+# READ: addr=c9 | got=fb | expected=fb
+# PASS: addr=c9 | data=fb
+# READ: addr=ca | got=xx | expected=xx
+# PASS: addr=ca | data=xx
+# WRITE: addr=02 data=34
+# READ: addr=45 | got=xx | expected=xx
+# PASS: addr=45 | data=xx
+# READ: addr=27 | got=54 | expected=54
+# PASS: addr=27 | data=54
+# WRITE: addr=76 data=db
+# READ: addr=d8 | got=62 | expected=62
+# PASS: addr=d8 | data=62
+# WRITE: addr=9c data=76
+# WRITE: addr=c4 data=cd
+# WRITE: addr=6a data=96
+# WRITE: addr=1d data=39
+# WRITE: addr=1a data=eb
+# READ: addr=8d | got=xx | expected=xx
+# PASS: addr=8d | data=xx
+# WRITE: addr=0f data=15
+# WRITE: addr=15 data=d4
+# WRITE: addr=c6 data=69
+# WRITE: addr=14 data=d9
+# WRITE: addr=a1 data=95
+# WRITE: addr=38 data=83
+# READ: addr=0e | got=40 | expected=40
+# PASS: addr=0e | data=40
+# READ: addr=a2 | got=xx | expected=xx
+# PASS: addr=a2 | data=xx
+# WRITE: addr=e1 data=b9
+# READ: addr=b1 | got=xx | expected=xx
+# PASS: addr=b1 | data=xx
+# WRITE: addr=94 data=c3
+# WRITE: addr=10 data=db
+# WRITE: addr=90 data=3a
+# READ: addr=08 | got=32 | expected=32
+# PASS: addr=08 | data=32
+# WRITE: addr=8b data=43
+# WRITE: addr=4b data=cb
+# WRITE: addr=ef data=89
+# READ: addr=5a | got=xx | expected=xx
+# PASS: addr=5a | data=xx
+# READ: addr=f7 | got=xx | expected=xx
+# PASS: addr=f7 | data=xx
+# READ: addr=c8 | got=59 | expected=59
+# PASS: addr=c8 | data=59
+# READ: addr=a1 | got=95 | expected=95
+# PASS: addr=a1 | data=95
+# READ: addr=cb | got=36 | expected=36
+# PASS: addr=cb | data=36
+# WRITE: addr=39 data=10
+# READ: addr=7b | got=58 | expected=58
+# PASS: addr=7b | data=58
+# WRITE: addr=01 data=1f
+# READ: addr=8d | got=xx | expected=xx
+# PASS: addr=8d | data=xx
+# WRITE: addr=87 data=03
+# READ: addr=4c | got=53 | expected=53
+# PASS: addr=4c | data=53
+# WRITE: addr=ad data=fc
+# WRITE: addr=35 data=84
+# WRITE: addr=d9 data=6e
+# WRITE: addr=68 data=71
+# READ: addr=e2 | got=xx | expected=xx
+# PASS: addr=e2 | data=xx
+# WRITE: addr=c8 data=b2
+# READ: addr=c6 | got=69 | expected=69
+# PASS: addr=c6 | data=69
+# READ: addr=8f | got=63 | expected=63
+# PASS: addr=8f | data=63
+# READ: addr=63 | got=xx | expected=xx
+# PASS: addr=63 | data=xx
+# READ: addr=c3 | got=xx | expected=xx
+# PASS: addr=c3 | data=xx
+# WRITE: addr=f5 data=3b
+# READ: addr=68 | got=71 | expected=71
+# PASS: addr=68 | data=71
+# WRITE: addr=3d data=03
+# READ: addr=fe | got=5e | expected=5e
+# PASS: addr=fe | data=5e
+# WRITE: addr=be data=1b
+# READ: addr=3a | got=xx | expected=xx
+# PASS: addr=3a | data=xx
+# WRITE: addr=75 data=d9
+# READ: addr=0c | got=xx | expected=xx
+# PASS: addr=0c | data=xx
+# WRITE: addr=41 data=6e
+# WRITE: addr=eb data=9e
+# WRITE: addr=c6 data=37
+# READ: addr=67 | got=xx | expected=xx
+# PASS: addr=67 | data=xx
+# WRITE: addr=33 data=20
+# READ: addr=85 | got=xx | expected=xx
+# PASS: addr=85 | data=xx
+# WRITE: addr=ef data=e1
+# WRITE: addr=77 data=0c
+# READ: addr=b6 | got=xx | expected=xx
+# PASS: addr=b6 | data=xx
+# WRITE: addr=60 data=3d
+# READ: addr=63 | got=xx | expected=xx
+# PASS: addr=63 | data=xx
+# WRITE: addr=a4 data=06
+# READ: addr=e5 | got=xx | expected=xx
+# PASS: addr=e5 | data=xx
+# READ: addr=a2 | got=xx | expected=xx
+# PASS: addr=a2 | data=xx
+# WRITE: addr=71 data=85
+# READ: addr=4f | got=xx | expected=xx
+# PASS: addr=4f | data=xx
+# WRITE: addr=d9 data=79
+# READ: addr=35 | got=84 | expected=84
+# PASS: addr=35 | data=84
+# WRITE: addr=e3 data=f4
+# READ: addr=a2 | got=xx | expected=xx
+# PASS: addr=a2 | data=xx
+# WRITE: addr=3c data=bd
+# READ: addr=41 | got=6e | expected=6e
+# PASS: addr=41 | data=6e
+# WRITE: addr=b2 data=e9
+# READ: addr=ec | got=fc | expected=fc
+# PASS: addr=ec | data=fc
+# WRITE: addr=ce data=9a
+# READ: addr=03 | got=xx | expected=xx
+# PASS: addr=03 | data=xx
+# READ: addr=00 | got=xx | expected=xx
+# PASS: addr=00 | data=xx
+# READ: addr=86 | got=32 | expected=32
+# PASS: addr=86 | data=32
+# READ: addr=ab | got=18 | expected=18
+# PASS: addr=ab | data=18
+# READ: addr=00 | got=xx | expected=xx
+# PASS: addr=00 | data=xx
+# READ: addr=46 | got=34 | expected=34
+# PASS: addr=46 | data=34
+# WRITE: addr=43 data=9b
+# READ: addr=0a | got=da | expected=da
+# PASS: addr=0a | data=da
+# WRITE: addr=d4 data=e3
+# READ: addr=9a | got=98 | expected=98
+# PASS: addr=9a | data=98
+# READ: addr=c5 | got=ed | expected=ed
+# PASS: addr=c5 | data=ed
+# READ: addr=d5 | got=81 | expected=81
+# PASS: addr=d5 | data=81
+# WRITE: addr=2b data=82
+# READ: addr=82 | got=xx | expected=xx
+# PASS: addr=82 | data=xx
+# READ: addr=4e | got=fc | expected=fc
+# PASS: addr=4e | data=fc
+# READ: addr=a3 | got=30 | expected=30
+# PASS: addr=a3 | data=30
+# READ: addr=ba | got=xx | expected=xx
+# PASS: addr=ba | data=xx
+# WRITE: addr=ba data=c5
+# READ: addr=c7 | got=xx | expected=xx
+# PASS: addr=c7 | data=xx
+# READ: addr=aa | got=xx | expected=xx
+# PASS: addr=aa | data=xx
+# WRITE: addr=12 data=59
+# READ: addr=de | got=xx | expected=xx
+# PASS: addr=de | data=xx
+# WRITE: addr=0f data=a6
+# READ: addr=b2 | got=e9 | expected=e9
+# PASS: addr=b2 | data=e9
+# WRITE: addr=33 data=86
+# READ: addr=57 | got=b5 | expected=b5
+# PASS: addr=57 | data=b5
+# WRITE: addr=7c data=15
+# READ: addr=f6 | got=xx | expected=xx
+# PASS: addr=f6 | data=xx
+# WRITE: addr=9a data=8c
+# WRITE: addr=82 data=04
+# WRITE: addr=0b data=1b
+# WRITE: addr=83 data=fa
+# WRITE: addr=5e data=0d
+# READ: addr=05 | got=xx | expected=xx
+# PASS: addr=05 | data=xx
+# READ: addr=42 | got=xx | expected=xx
+# PASS: addr=42 | data=xx
+# READ: addr=41 | got=6e | expected=6e
+# PASS: addr=41 | data=6e
+# WRITE: addr=39 data=64
+# READ: addr=fb | got=xx | expected=xx
+# PASS: addr=fb | data=xx
+# READ: addr=f6 | got=xx | expected=xx
+# PASS: addr=f6 | data=xx
+# WRITE: addr=57 data=87
+# READ: addr=6d | got=xx | expected=xx
+# PASS: addr=6d | data=xx
+# WRITE: addr=85 data=41
+# WRITE: addr=41 data=93
+# WRITE: addr=48 data=24
+# WRITE: addr=40 data=da
+# READ: addr=db | got=1c | expected=1c
+# PASS: addr=db | data=1c
+# WRITE: addr=26 data=16
+# READ: addr=d9 | got=79 | expected=79
+# PASS: addr=d9 | data=79
+# READ: addr=e4 | got=xx | expected=xx
+# PASS: addr=e4 | data=xx
+# READ: addr=74 | got=23 | expected=23
+# PASS: addr=74 | data=23
+# READ: addr=7a | got=dd | expected=dd
+# PASS: addr=7a | data=dd
+# READ: addr=89 | got=ed | expected=ed
+# PASS: addr=89 | data=ed
+# READ: addr=8e | got=c4 | expected=c4
+# PASS: addr=8e | data=c4
+# READ: addr=70 | got=0d | expected=0d
+# PASS: addr=70 | data=0d
+# WRITE: addr=f0 data=2c
+# READ: addr=4d | got=3c | expected=3c
+# PASS: addr=4d | data=3c
+# WRITE: addr=09 data=98
+# READ: addr=47 | got=0f | expected=0f
+# PASS: addr=47 | data=0f
+# READ: addr=67 | got=xx | expected=xx
+# PASS: addr=67 | data=xx
+# READ: addr=9c | got=76 | expected=76
+# PASS: addr=9c | data=76
+# WRITE: addr=6e data=31
+# READ: addr=44 | got=xx | expected=xx
+# PASS: addr=44 | data=xx
+# READ: addr=16 | got=xx | expected=xx
+# PASS: addr=16 | data=xx
+# READ: addr=a9 | got=xx | expected=xx
+# PASS: addr=a9 | data=xx
+# READ: addr=ce | got=9a | expected=9a
+# PASS: addr=ce | data=9a
+# WRITE: addr=f9 data=fd
+# READ: addr=8e | got=c4 | expected=c4
+# PASS: addr=8e | data=c4
+# WRITE: addr=58 data=e6
+# WRITE: addr=5d data=81
+# WRITE: addr=67 data=2b
+# WRITE: addr=8e data=c2
+# READ: addr=f1 | got=xx | expected=xx
+# PASS: addr=f1 | data=xx
+# READ: addr=3e | got=xx | expected=xx
+# PASS: addr=3e | data=xx
+# READ: addr=00 | got=xx | expected=xx
+# PASS: addr=00 | data=xx
+# READ: addr=58 | got=e6 | expected=e6
+# PASS: addr=58 | data=e6
+# WRITE: addr=36 data=80
+# READ: addr=26 | got=16 | expected=16
+# PASS: addr=26 | data=16
+# WRITE: addr=12 data=08
+# WRITE: addr=88 data=09
+# READ: addr=46 | got=34 | expected=34
+# PASS: addr=46 | data=34
+# WRITE: addr=58 data=49
+# READ: addr=8b | got=43 | expected=43
+# PASS: addr=8b | data=43
+# ** Note: $finish    : test.sv(29)
+#    Time: 5080 ns  Iteration: 0  Instance: /sram_tb
+# Coverage: 93.33%
+# cp_op coverage:   100.00%
+# cp_addr coverage: 100.00%
+# Scoreboard Summary:
+# PASS: 257 | FAIL: 0
+# Saving coverage database on exit...
+# End time: 18:16:52 on Jul 08,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
+End time: 18:16:52 on Jul 08,2026, Elapsed time: 0:00:05
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   0
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   0

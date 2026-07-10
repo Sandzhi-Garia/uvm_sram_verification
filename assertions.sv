@@ -24,7 +24,7 @@ endproperty
       
 property invalid_when_both_readANDwrite;
   @(posedge clk) disable iff (rst)
-  (wr_enable && rd_enable) |=> !valid;
+  (wr_enable && rd_enable) |=> !valid; //cant write and read simultaneously
 endproperty
       assert property (invalid_when_both_readANDwrite)
         else $error("[ASSERT FAIL] valid asserted after simultaneous write+read at time %0t", $time);

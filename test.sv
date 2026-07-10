@@ -14,8 +14,8 @@ initial begin
     
     rd_enable = 0;
   
-    repeat (500) begin
-      if ($urandom_range(0,1)) begin
+  repeat (2000) begin
+      if ($urandom_range(0,1)) begin //random tests
         wr_enable = 1; rd_enable = 0;
         addr = $urandom; data_in = $urandom;
       end

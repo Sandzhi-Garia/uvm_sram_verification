@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Jul 08 18:32:41 2026
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : SRAM
+Top-level Entity Name : SRAM
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 2,639 / 22,320 ( 12 % )
+    Total combinational functions : 1,649 / 22,320 ( 7 % )
+    Dedicated logic registers : 2,057 / 22,320 ( 9 % )
+Total registers : 2057
+Total pins : 30 / 154 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 0 / 608,256 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

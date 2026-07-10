@@ -21,11 +21,14 @@ module sram_tb;
   end
 
   final begin
-    $display("Coverage: %0.2f%%", cg.get_coverage());
-    $display("cp_op coverage:   %0.2f%%", cg.cp_op.get_coverage());
-    $display("cp_addr coverage: %0.2f%%", cg.cp_addr.get_coverage());
-    $display("Scoreboard Summary:");
-    $display("PASS: %0d | FAIL: %0d", pass, fail); 
-end
+      $display("Coverage: %0.2f%%", cg.get_coverage());
+      $display("cp_op coverage:            %0.2f%%", cg.cp_op.get_coverage());
+      $display("cp_addr coverage:          %0.2f%%", cg.cp_addr.get_coverage());
+      $display("opcode_addr_cross coverage: %0.2f%%", cg.opcode_addr_cross.get_coverage());
+      $display("cp_sequence coverage:      %0.2f%%", cg.cp_sequence.get_coverage());
+      $display("cp_valid coverage:         %0.2f%%", cg.cp_valid.get_coverage());
+      $display("Scoreboard Summary:");
+      $display("PASS: %0d | FAIL: %0d", pass, fail); 
+  end
 endmodule
   
